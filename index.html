@@ -3,147 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demon Nodes | High Performance Hosting</title>
+    <title>Demon Nodes | Next-Gen Hosting</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* बैकग्राउंड एनीमेशन सेटअप */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: #0d0d0d;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                              url('https://wallpaperaccess.com/full/333113.jpg'); 
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030303;
             color: white;
             overflow-x: hidden;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s ease;
+        /* प्रोफेशनल बैकग्राउंड */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0a0a2e 0%, #030303 100%);
         }
 
-        .glass:hover {
-            background: rgba(168, 85, 247, 0.1);
-            transform: translateY(-8px);
+        /* यूनिक ग्लो इफ़ेक्ट */
+        .hero-glow {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
             border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.1);
         }
 
-        .hero-title {
-            text-shadow: 0px 0px 30px rgba(168, 85, 247, 0.6);
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+            transform: scale(1.05);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #fff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 <body>
 
     <div id="particles-js"></div>
+    <div class="hero-glow"></div>
 
-    <div class="relative z-10 flex flex-col items-center min-h-screen">
-        
-        <nav class="w-full flex justify-between items-center p-6 max-w-6xl">
+    <nav class="glass-nav fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="bg-purple-600 p-2 rounded-xl">
+                <div class="bg-purple-600 p-2 rounded-xl shadow-lg shadow-purple-500/30">
                     <i class="fas fa-ghost text-xl"></i>
                 </div>
-                <span class="text-2xl font-black uppercase tracking-tighter">Demon <span class="text-purple-500">Nodes</span></span>
+                <span class="text-2xl font-black tracking-tighter uppercase italic">Demon<span class="text-purple-500">Nodes</span></span>
             </div>
-            <div class="flex gap-6 text-[10px] font-bold uppercase tracking-widest">
-                <a href="#" class="hover:text-purple-500 transition">Games</a>
-                <a href="#" class="hover:text-purple-500 transition">VPS</a>
-                <a href="#" class="text-purple-500 border border-purple-500 px-3 py-1 rounded-lg">Login</a>
+            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest">
+                <a href="#" class="hover:text-purple-400 transition">Solutions</a>
+                <a href="#" class="hover:text-purple-400 transition">Network</a>
+                <a href="#" class="hover:text-purple-400 transition">Support</a>
+                <a href="https://billing.demonnodes.com" class="text-purple-500 border border-purple-500/30 px-5 py-2 rounded-full hover:bg-purple-500 hover:text-white transition">Client Area</a>
             </div>
-        </nav>
+            <button class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
 
-        <main class="flex flex-col items-center justify-center text-center px-6 mt-16 mb-20">
-            <div class="bg-purple-500/20 text-purple-400 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 border border-purple-500/30">
-                <i class="fas fa-microchip mr-2"></i> High Performance Nodes
-            </div>
+    <section class="relative pt-40 pb-20 px-6 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400 mb-8">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+            </span>
+            Enterprise Grade Hardware
+        </div>
 
-            <h1 class="hero-title text-6xl md:text-9xl font-black mb-6 leading-[0.85]">
-                DEMONIC<br>SERVERS
-            </h1>
+        <h1 class="text-6xl md:text-8xl font-black text-center leading-[0.9] tracking-tighter mb-8">
+            <span class="text-gradient">BEYOND</span> <br> 
+            <span class="text-white">PERFORMANCE</span>
+        </h1>
 
-            <p class="text-gray-400 max-w-sm text-sm mb-12 leading-relaxed">
-                बनाएं अपना गेमिंग साम्राज्य Demon Nodes के साथ। सबसे तेज़ नेटवर्क और बेस्ट सपोर्ट।
-            </p>
+        <p class="text-gray-400 max-w-xl text-center text-sm md:text-base leading-relaxed mb-12">
+            सिर्फ होस्टिंग नहीं, एक अनुभव। हमारे Ryzen 9 पावर्ड नोड्स और ग्लोबल नेटवर्क के साथ अपने गेमिंग कम्युनिटी को दें सबसे बेस्ट स्पीड।
+        </p>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl">
-                <a href="minecraft-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-3 group">
-                    <i class="fas fa-cube text-3xl text-purple-500 group-hover:scale-110 transition"></i>
-                    <span class="text-xs font-bold uppercase tracking-widest">Minecraft</span>
-                </a>
-                
-                <a href="vps-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-3">
-                    <i class="fas fa-server text-3xl text-blue-500"></i>
-                    <span class="text-xs font-bold uppercase tracking-widest">VPS</span>
-                </a>
+        <div class="flex gap-4 mb-24">
+            <button class="btn-primary px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl">Get Started Now</button>
+            <button class="bg-white/5 hover:bg-white/10 px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest border border-white/10 transition">Our Network</button>
+        </div>
 
-                <a href="palworld-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-3">
-                    <i class="fas fa-paw text-3xl text-yellow-500"></i>
-                    <span class="text-xs font-bold uppercase tracking-widest">Palworld</span>
-                </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+            <a href="minecraft-plans.html" class="service-card p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 text-purple-500 text-3xl">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 uppercase tracking-tighter">Minecraft</h3>
+                <p class="text-gray-500 text-xs uppercase font-bold tracking-widest">Starting at $1.00</p>
+            </a>
 
-                <a href="bot-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-3">
-                    <i class="fas fa-robot text-3xl text-orange-500"></i>
-                    <span class="text-xs font-bold uppercase tracking-widest">Bots</span>
-                </a>
-            </div>
-        </main>
+            <a href="vps-plans.html" class="service-card p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 text-blue-500 text-3xl">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 uppercase tracking-tighter">VPS Nodes</h3>
+                <p class="text-gray-500 text-xs uppercase font-bold tracking-widest">Starting at $5.00</p>
+            </a>
 
-        <footer class="mt-auto py-8 text-gray-600 text-[10px] font-bold uppercase tracking-widest">
-            © 2026 Demon Nodes Hosting
-        </footer>
-    </div>
+            <a href="palworld-plans.html" class="service-card p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 text-yellow-500 text-3xl">
+                    <i class="fas fa-paw"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 uppercase tracking-tighter">Palworld</h3>
+                <p class="text-gray-500 text-xs uppercase font-bold tracking-widest">Starting at $4.50</p>
+            </a>
+
+            <a href="bot-plans.html" class="service-card p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 text-orange-500 text-3xl">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 uppercase tracking-tighter">Bot Hosting</h3>
+                <p class="text-gray-400 text-xs uppercase font-bold tracking-widest">Coming Soon</p>
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 text-center">
+        <p class="text-gray-600 text-[10px] font-black uppercase tracking-[0.3em]">© 2026 Demon Nodes Hosting Group</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { 
-                    "value": 80, // डॉट्स की संख्या
-                    "density": { "enable": true, "value_area": 800 } 
-                },
-                "color": { "value": "#a855f7" }, // डॉट्स का रंग (Purple)
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 3 },
-                "line_linked": { 
-                    "enable": true, 
-                    "distance": 150, 
-                    "color": "#a855f7", // लाइन्स का रंग
-                    "opacity": 0.3, 
-                    "width": 1 
-                },
-                "move": { 
-                    "enable": true, 
-                    "speed": 2, // एनीमेशन की स्पीड
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "events": { 
-                    "onhover": { "enable": true, "mode": "grab" }, // माउस ले जाने पर डॉट्स जुड़ेंगे
-                    "onclick": { "enable": true, "mode": "push" } 
-                }
-            },
-            "retina_detect": true
+                "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#a855f7" },
+                "opacity": { "value": 0.2 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#a855f7", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 1 }
+            }
         });
     </script>
 </body>
