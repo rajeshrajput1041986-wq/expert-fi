@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -8,81 +8,84 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.unsplash.com/photo-1627389955609-bc0134440c83?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            /* यहाँ आपकी इमेज का लिंक डाला गया है */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://r.jina.ai/i/9e075c3f912e47648356860000084561');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
-            font-family: 'Inter', sans-serif;
+            font-family: 'sans-serif';
+            margin: 0;
+            padding: 0;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col items-center">
 
-    <nav class="flex justify-between items-center p-6 lg:px-12">
+    <nav class="w-full flex justify-between items-center p-5 max-w-6xl">
         <div class="flex items-center gap-2">
             <div class="bg-purple-600 p-2 rounded-lg">
-                <i class="fas fa-microchip text-xl"></i>
+                <i class="fas fa-bolt text-lg"></i>
             </div>
-            <span class="text-2xl font-bold tracking-tight">Demon <span class="text-purple-500">Nodes</span></span>
+            <span class="text-xl font-bold">Demon <span class="text-purple-400">Nodes</span></span>
         </div>
         <div class="text-2xl cursor-pointer">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
-    <main class="flex-grow flex flex-col items-center justify-center text-center px-4 py-12">
+    <main class="flex-grow flex flex-col items-center justify-center text-center px-6 mt-10">
         
-        <div class="glass-card px-6 py-2 rounded-full mb-8 flex items-center gap-2 text-sm font-medium">
+        <div class="bg-white/10 px-4 py-1.5 rounded-full mb-6 flex items-center gap-2 text-xs font-semibold tracking-wide border border-white/5">
             <i class="fas fa-gamepad text-purple-400"></i>
             Minecraft Hosting
         </div>
 
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-            Minecraft Server <br> Hosting
+        <h1 class="text-5xl md:text-7xl font-bold mb-4">
+            Minecraft <br> Server <br> Hosting
         </h1>
         
-        <p class="text-gray-300 max-w-lg mb-8 text-lg leading-relaxed">
+        <p class="text-gray-400 max-w-xs md:max-w-md mb-8 text-base font-medium">
             High-performance Minecraft server hosting with low latency, DDoS protection, and 24/7 support.
         </p>
 
-        <div class="text-3xl font-bold mb-10">
+        <div class="text-3xl font-bold mb-10 tracking-tight">
             Starting at <span class="text-emerald-400 text-4xl">$1</span>/mo
         </div>
 
-        <button class="bg-purple-600 hover:bg-purple-700 transition-all px-10 py-4 rounded-xl text-xl font-bold flex items-center gap-3 mb-12 shadow-lg shadow-purple-500/20">
+        <button class="bg-[#8B5CF6] hover:bg-purple-700 transition-all px-12 py-4 rounded-2xl text-lg font-bold flex items-center gap-3 mb-16 shadow-xl">
             Get Started <i class="fas fa-arrow-right text-sm"></i>
         </button>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl px-4">
-            <div class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 cursor-pointer hover:bg-white/10">
-                <i class="fas fa-gamepad"></i>
-                <span class="text-sm font-medium">Minecraft Hosti...</span>
+        <div class="grid grid-cols-2 gap-3 w-full max-w-sm mb-10">
+            <div class="glass-card p-4 rounded-2xl flex items-center gap-3">
+                <i class="fas fa-gamepad text-gray-400"></i>
+                <span class="text-xs font-bold text-left leading-tight">Minecraft <br> Hosti...</span>
             </div>
-            <div class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 cursor-pointer hover:bg-white/10">
-                <i class="fas fa-server"></i>
-                <span class="text-sm font-medium">VPS Hosting</span>
+            <div class="glass-card p-4 rounded-2xl flex items-center gap-3">
+                <i class="fas fa-server text-gray-400"></i>
+                <span class="text-xs font-bold">VPS Hosting</span>
             </div>
-            <div class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 cursor-pointer hover:bg-white/10">
-                <i class="fas fa-globe"></i>
-                <span class="text-sm font-medium">Web Hosting</span>
+            <div class="glass-card p-4 rounded-2xl flex items-center gap-3">
+                <i class="fas fa-globe text-gray-400"></i>
+                <span class="text-xs font-bold">Web Hosting</span>
             </div>
-            <div class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 cursor-pointer hover:bg-white/10">
-                <i class="fas fa-robot"></i>
-                <span class="text-sm font-medium">Bot Hosting</span>
+            <div class="glass-card p-4 rounded-2xl flex items-center gap-3">
+                <i class="fas fa-robot text-gray-400"></i>
+                <span class="text-xs font-bold">Bot Hosting</span>
             </div>
         </div>
     </main>
 
     <div class="fixed bottom-6 right-6">
-        <div class="bg-fuchsia-600 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-110 transition-transform">
-            <i class="fas fa-comment text-3xl"></i>
+        <div class="bg-[#D926EF] w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
+            <i class="fas fa-comment text-2xl"></i>
         </div>
     </div>
 
