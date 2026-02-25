@@ -7,118 +7,181 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        #particles-js {
+        /* बैकग्राउंड एनीमेशन - नो व्हाइट बॉल्स */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d0d0d;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .hero-bg {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: #0d0d0d;
-            background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), 
-                              url('https://wallpaperaccess.com/full/333113.jpg'); 
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://wallpaperaccess.com/full/333113.jpg'); 
             background-size: cover;
             background-position: center;
             z-index: -1;
         }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; color: white; }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s ease;
+
+        /* हल्का पर्पल ग्लो एनीमेशन */
+        .glow-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15), transparent 70%);
+            animation: pulse-glow 8s infinite alternate;
+            z-index: -1;
         }
+
+        @keyframes pulse-glow {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
         .glass:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-8px);
-            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.1);
+            border-color: rgba(168, 85, 247, 0.5);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-link:hover {
+            color: #a855f7;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
+
+    <div class="hero-bg"></div>
+    <div class="glow-overlay"></div>
 
     <div class="relative z-10 flex flex-col items-center">
-        <nav class="w-full flex justify-between items-center p-6 max-w-6xl">
-            <div class="flex items-center gap-3">
-                <div class="bg-purple-600 p-2 rounded-xl shadow-lg shadow-purple-500/50"><i class="fas fa-ghost text-xl"></i></div>
+        <nav class="w-full flex justify-between items-center p-8 max-w-6xl">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="bg-purple-600 p-2.5 rounded-2xl shadow-lg shadow-purple-500/40 group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-ghost text-xl"></i>
+                </div>
                 <span class="text-2xl font-black uppercase tracking-tighter">Demon <span class="text-purple-500">Nodes</span></span>
             </div>
-            <div class="flex gap-6 text-sm font-bold uppercase tracking-widest">
-                <a href="#" class="hover:text-purple-500 transition">Home</a>
-                <a href="#services" class="hover:text-purple-500 transition">Services</a>
-                <a href="https://billing.demonnodes.com" class="text-purple-500">Login</a>
+            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.2em]">
+                <a href="#" class="nav-link transition">Home</a>
+                <a href="#services" class="nav-link transition">Games</a>
+                <a href="#vps" class="nav-link transition">VPS</a>
+                <a href="https://billing.demonnodes.com" class="bg-purple-600 px-5 py-2 rounded-lg hover:bg-purple-700 transition">Client Area</a>
             </div>
+            <div class="md:hidden text-2xl"><i class="fas fa-bars"></i></div>
         </nav>
 
-        <main class="flex flex-col items-center justify-center text-center px-6 mt-16 mb-24">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-none tracking-tight">DEMONIC<br>PERFORMANCE</h1>
-            <p class="text-gray-400 max-w-lg mb-12 text-sm">High-performance game servers with Ryzen 9 processors and NVMe storage. Choose your battleground below.</p>
+        <main class="flex flex-col items-center justify-center text-center px-6 mt-20 mb-32">
+            <div class="bg-purple-500/10 text-purple-400 px-5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8 border border-purple-500/20">
+                <i class="fas fa-bolt mr-2 text-yellow-400"></i> Powered by Ryzen 9 7950X
+            </div>
 
-            <div id="services" class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
-                <a href="minecraft-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-4 group">
-                    <i class="fas fa-cube text-4xl text-purple-500 group-hover:scale-110 transition"></i>
+            <h1 class="text-6xl md:text-9xl font-black mb-8 leading-[0.9] tracking-tighter">
+                UNLEASH <br> <span class="text-purple-500">THE BEAST</span>
+            </h1>
+
+            <p class="text-gray-400 max-w-lg mb-12 text-base font-medium leading-relaxed">
+                Premium Game Hosting with zero lag, instant setup, and 24/7 demon support. Choose your engine below.
+            </p>
+
+            <div id="services" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mt-10">
+                <a href="minecraft-plans.html" class="glass p-10 rounded-[2.5rem] flex flex-col items-center gap-5">
+                    <div class="p-4 bg-purple-500/10 rounded-2xl text-purple-500"><i class="fas fa-cube text-4xl"></i></div>
                     <span class="text-sm font-bold uppercase tracking-widest">Minecraft</span>
                 </a>
-                <a href="vps-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-4 group">
-                    <i class="fas fa-server text-4xl text-blue-500 group-hover:scale-110 transition"></i>
+                <a href="vps-plans.html" class="glass p-10 rounded-[2.5rem] flex flex-col items-center gap-5">
+                    <div class="p-4 bg-blue-500/10 rounded-2xl text-blue-500"><i class="fas fa-server text-4xl"></i></div>
                     <span class="text-sm font-bold uppercase tracking-widest">VPS Hosting</span>
                 </a>
-                <a href="web-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-4 group">
-                    <i class="fas fa-globe text-4xl text-emerald-500 group-hover:scale-110 transition"></i>
+                <a href="web-plans.html" class="glass p-10 rounded-[2.5rem] flex flex-col items-center gap-5">
+                    <div class="p-4 bg-emerald-500/10 rounded-2xl text-emerald-500"><i class="fas fa-globe text-4xl"></i></div>
                     <span class="text-sm font-bold uppercase tracking-widest">Web Hosting</span>
                 </a>
-                <a href="bot-plans.html" class="glass p-8 rounded-[2rem] flex flex-col items-center gap-4 group">
-                    <i class="fas fa-robot text-4xl text-orange-500 group-hover:scale-110 transition"></i>
-                    <span class="text-sm font-bold uppercase tracking-widest">Discord Bots</span>
+                <a href="bot-plans.html" class="glass p-10 rounded-[2.5rem] flex flex-col items-center gap-5">
+                    <div class="p-4 bg-orange-500/10 rounded-2xl text-orange-500"><i class="fas fa-robot text-4xl"></i></div>
+                    <span class="text-sm font-bold uppercase tracking-widest">Bot Hosting</span>
                 </a>
             </div>
         </main>
 
-        <section class="w-full max-w-6xl px-6 py-10">
-            <h2 class="text-2xl font-black uppercase mb-8 border-l-4 border-purple-600 pl-4">Other Supported Games</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass p-6 rounded-3xl flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-paw text-2xl text-yellow-500"></i>
-                        <div>
-                            <h4 class="font-bold">Palworld</h4>
-                            <p class="text-xs text-gray-500">Starting $4.00/mo</p>
-                        </div>
-                    </div>
-                    <a href="palworld-plans.html" class="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition"><i class="fas fa-chevron-right text-xs"></i></a>
+        <section class="w-full max-w-6xl px-8 py-20 bg-white/[0.02] rounded-[3rem] mb-20 border border-white/[0.05]">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-black uppercase tracking-tight">Cloud Game Servers</h2>
+                    <p class="text-gray-500 text-sm mt-2">More games supported by Demon Nodes</p>
                 </div>
-                <div class="glass p-6 rounded-3xl flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-car text-2xl text-red-500"></i>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-3xl flex items-center justify-between group">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-paw text-2xl text-yellow-500"></i>
+                        </div>
                         <div>
-                            <h4 class="font-bold">FiveM / GTA V</h4>
-                            <p class="text-xs text-gray-500">Starting $5.50/mo</p>
+                            <h4 class="font-bold text-lg">Palworld</h4>
+                            <p class="text-xs text-gray-500">Starting at $4.50</p>
                         </div>
                     </div>
-                    <a href="gtav-plans.html" class="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition"><i class="fas fa-chevron-right text-xs"></i></a>
+                    <a href="palworld-plans.html" class="bg-white/5 w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-purple-600 transition-all">
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
                 </div>
-                <div class="glass p-6 rounded-3xl flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-skull text-2xl text-gray-400"></i>
+
+                <div class="glass p-8 rounded-3xl flex items-center justify-between group">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-car text-2xl text-red-500"></i>
+                        </div>
                         <div>
-                            <h4 class="font-bold">Rust</h4>
-                            <p class="text-xs text-gray-500">Starting $6.00/mo</p>
+                            <h4 class="font-bold text-lg">FiveM / GTA V</h4>
+                            <p class="text-xs text-gray-500">Starting at $5.00</p>
                         </div>
                     </div>
-                    <a href="rust-plans.html" class="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition"><i class="fas fa-chevron-right text-xs"></i></a>
+                    <a href="gtav-plans.html" class="bg-white/5 w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-purple-600 transition-all">
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="glass p-8 rounded-3xl flex items-center justify-between group">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-gray-500/10 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-skull text-2xl text-gray-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Rust</h4>
+                            <p class="text-xs text-gray-500">Starting at $6.00</p>
+                        </div>
+                    </div>
+                    <a href="rust-plans.html" class="bg-white/5 w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-purple-600 transition-all">
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
                 </div>
             </div>
         </section>
+
+        <footer class="w-full py-16 text-center border-t border-white/5">
+            <p class="text-gray-600 text-xs font-bold tracking-widest uppercase">© 2026 Demon Nodes. Built for Gamers.</p>
+        </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 60 },
-                "color": { "value": "#ffffff" },
-                "line_linked": { "enable": true, "distance": 150, "color": "#a855f7", "opacity": 0.2 },
-                "move": { "enable": true, "speed": 1.5 }
-            }
-        });
-    </script>
 </body>
 </html>
