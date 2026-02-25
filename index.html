@@ -3,167 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demon Nodes | Ultimate Gaming Hosting</title>
-    
+    <title>Demon Nodes | Shuruat Se Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-
-        body {
-            margin: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #020202;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at center, #0a0a25 0%, #020202 100%);
-        }
-
-        .glass-nav {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* सर्विस कार्ड्स विथ इमेजेज */
-        .service-card {
-            position: relative;
-            height: 320px;
-            overflow: hidden;
-            border-radius: 2.5rem;
-            background: #111;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s ease;
-        }
-
-        .card-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
-            transition: 0.5s ease;
-        }
-
-        .service-card:hover .card-img {
-            opacity: 0.7;
-            transform: scale(1.1);
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            flex-col;
-            justify-content: flex-end;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
-        }
-
-        .service-card:hover {
-            border-color: #a855f7;
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #fff, #a855f7, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020202; color: white; overflow-x: hidden; }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, #0d0d2b 0%, #020202 100%); }
+        
+        /* Premium Card Style */
+        .service-card { position: relative; height: 350px; overflow: hidden; border-radius: 2rem; background: #0f0f0f; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.5s ease; }
+        .card-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover .card-img { opacity: 0.8; transform: scale(1.1); }
+        .card-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 100%); }
+        .service-card:hover { border-color: #a855f7; box-shadow: 0 0 40px rgba(168, 85, 247, 0.2); }
+        
+        /* Footer Glass */
+        .glass-footer { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border-top: 1px solid rgba(255, 255, 255, 0.05); }
     </style>
 </head>
 <body>
 
     <div id="particles-js"></div>
 
-    <nav class="glass-nav fixed w-full z-50 px-8 py-5">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-purple-600 p-2 rounded-xl shadow-lg shadow-purple-500/30">
-                    <i class="fas fa-ghost text-xl text-white"></i>
-                </div>
-                <span class="text-2xl font-black tracking-tighter uppercase italic">Demon<span class="text-purple-500">Nodes</span></span>
-            </div>
-            <div class="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[0.2em]">
-                <a href="#" class="hover:text-purple-400 transition">Store</a>
-                <a href="#" class="hover:text-purple-400 transition">Node Status</a>
-                <a href="https://billing.demonnodes.com" class="bg-white/5 border border-white/10 px-6 py-2 rounded-full hover:bg-purple-600 transition">Login</a>
-            </div>
+    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center bg-black/20 backdrop-blur-md">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl font-black tracking-tighter italic text-white">DEMON<span class="text-purple-500">NODES</span></span>
+        </div>
+        <div class="flex gap-6">
+            <a href="https://panel.demonnodes.com" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full text-xs font-bold uppercase transition">Panel Login</a>
         </div>
     </nav>
 
-    <section class="relative pt-48 pb-24 px-6 flex flex-col items-center">
-        <h1 class="text-5xl md:text-8xl font-black text-center leading-none tracking-tighter mb-10">
-            <span class="text-white">DOMINATE THE</span> <br> 
-            <span class="text-gradient italic">GAMING WORLD</span>
-        </h1>
+    <section class="pt-48 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter uppercase">Power Up Your <span class="text-purple-500">Game</span></h1>
+            <p class="text-gray-400 text-lg">High-end hardware se bani gaming hosting, ab aapke budget mein.</p>
+        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             <a href="minecraft-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=800&q=80" alt="Minecraft" class="card-img">
+                <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=1974&auto=format&fit=crop" class="card-img" alt="Minecraft">
                 <div class="card-content">
-                    <div>
-                        <h3 class="text-2xl font-black uppercase tracking-tighter">Minecraft</h3>
-                        <p class="text-purple-400 font-bold text-xs mt-2 uppercase">Lag-Free Hosting • $1/mo</p>
-                    </div>
+                    <h3 class="text-2xl font-bold">Minecraft</h3>
+                    <p class="text-purple-400 text-xs font-bold uppercase tracking-widest mt-2">DDoS Protected • $1.00</p>
                 </div>
             </a>
 
             <a href="vps-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80" alt="VPS" class="card-img">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="VPS">
                 <div class="card-content">
-                    <div>
-                        <h3 class="text-2xl font-black uppercase tracking-tighter">VPS Nodes</h3>
-                        <p class="text-blue-400 font-bold text-xs mt-2 uppercase">Root Access • $5/mo</p>
-                    </div>
+                    <h3 class="text-2xl font-bold">KVM VPS</h3>
+                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest mt-2">Ryzen 9 Power • $5.00</p>
                 </div>
             </a>
 
             <a href="palworld-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Gaming" class="card-img">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="Palworld">
                 <div class="card-content">
-                    <div>
-                        <h3 class="text-2xl font-black uppercase tracking-tighter">Palworld</h3>
-                        <p class="text-yellow-400 font-bold text-xs mt-2 uppercase">Instant Setup • $4.50/mo</p>
-                    </div>
+                    <h3 class="text-2xl font-bold">Palworld</h3>
+                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-widest mt-2">Extreme Performance • $4.50</p>
                 </div>
             </a>
 
             <a href="bot-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=800&q=80" alt="Bot" class="card-img">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="Bots">
                 <div class="card-content">
-                    <div>
-                        <h3 class="text-2xl font-black uppercase tracking-tighter">Discord Bots</h3>
-                        <p class="text-gray-400 font-bold text-xs mt-2 uppercase">24/7 Online • Coming Soon</p>
-                    </div>
+                    <h3 class="text-2xl font-bold">Bot Hosting</h3>
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mt-2">24/7 Online • Coming Soon</p>
                 </div>
             </a>
-
         </div>
     </section>
+
+    <footer class="glass-footer pt-20 pb-10 px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <span class="text-2xl font-black italic">DEMON<span class="text-purple-500">NODES</span></span>
+                <p class="text-gray-500 mt-6 text-sm leading-relaxed max-w-sm">Hum pradaan karte hain next-generation gaming servers jo kabhi lag nahi hote. Aapka game, hamari zimmedari.</p>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase text-xs tracking-widest mb-6">Important Links</h4>
+                <ul class="text-gray-400 text-sm space-y-4">
+                    <li><a href="https://panel.demonnodes.com" class="hover:text-purple-500 transition">Game Panel Login</a></li>
+                    <li><a href="https://billing.demonnodes.com" class="hover:text-purple-500 transition">Billing Area</a></li>
+                    <li><a href="#" class="hover:text-purple-500 transition">Node Status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase text-xs tracking-widest mb-6">Social</h4>
+                <div class="flex gap-4">
+                    <a href="https://discord.gg/yourlink" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-purple-600 transition"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-pink-600 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-600 text-[10px] font-bold uppercase tracking-widest border-t border-white/5 pt-10">
+            © 2026 Demon Nodes Hosting Group. All Rights Reserved.
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 30, "density": { "enable": true, "value_area": 1000 } },
+                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#a855f7" },
-                "opacity": { "value": 0.15 },
-                "size": { "value": 3 },
-                "line_linked": { "enable": true, "distance": 200, "color": "#a855f7", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 0.8 }
+                "opacity": { "value": 0.2 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#a855f7", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 1 }
             }
         });
     </script>
