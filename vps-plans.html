@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium VPS Nodes | Demon Nodes</title>
+    <title>Elite VPS Nodes | Demon Nodes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
         body {
             margin: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050505;
+            background-color: #030303;
             color: white;
             overflow-x: hidden;
         }
@@ -22,39 +22,32 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* हल्का डार्क बैकग्राउंड */
-            background: radial-gradient(circle at top right, #0a0a2e, #050505);
+            background: radial-gradient(circle at top right, #0a0a25, #030303);
         }
 
-        .category-tab {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
+        .tab-btn {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .category-tab:hover, .category-tab.active {
-            background: rgba(59, 130, 246, 0.2);
+        .tab-btn.active {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
             border-color: #3b82f6;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
 
         .vps-card {
             background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border-radius: 2rem;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s;
         }
 
         .vps-card:hover {
-            transform: translateY(-12px);
             border-color: #3b82f6;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .neon-text {
-            text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+            transform: translateY(-5px);
+            background: rgba(59, 130, 246, 0.05);
         }
     </style>
 </head>
@@ -62,143 +55,102 @@
 
     <div id="particles-js"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 py-10">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-12">
+        
         <header class="flex justify-between items-center mb-16">
-            <a href="index.html" class="flex items-center gap-2 text-gray-400 hover:text-white transition group">
-                <i class="fas fa-arrow-left group-hover:-translate-x-2 transition"></i> Back to Home
+            <a href="index.html" class="text-gray-400 hover:text-white flex items-center gap-2 transition">
+                <i class="fas fa-arrow-left text-sm"></i> Back to Main
             </a>
-            <div class="bg-blue-600/20 px-4 py-1 rounded-full border border-blue-500/30 text-xs font-bold text-blue-400 uppercase tracking-widest">
-                High-Performance Network
-            </div>
+            <h1 class="text-xl font-black italic tracking-tighter">DEMON<span class="text-blue-500">VPS</span></h1>
         </header>
 
-        <div class="text-center mb-16">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tighter uppercase neon-text">CHOOSE YOUR <span class="text-blue-500">ENGINE</span></h1>
-            <p class="text-gray-400 max-w-2xl mx-auto">अपनी वर्कलोड की ज़रुरत के हिसाब से प्रोसेसर और पावर चुनें।</p>
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 uppercase">Select Your <span class="text-blue-500">Power</span></h2>
+            <p class="text-gray-400">हमने आपके लिए 30 से ज़्यादा प्रीमियम VPS कॉन्फ़िगरेशन तैयार किए हैं।</p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-4 mb-20">
-            <button class="category-tab active px-8 py-4 rounded-2xl flex items-center gap-3 font-bold uppercase tracking-wider text-sm">
-                <i class="fas fa-microchip text-blue-500"></i> AMD Ryzen™ 9
-            </button>
-            <button class="category-tab px-8 py-4 rounded-2xl flex items-center gap-3 font-bold uppercase tracking-wider text-sm">
-                <i class="fas fa-server text-blue-500"></i> Intel® Xeon®
-            </button>
-            <button class="category-tab px-8 py-4 rounded-2xl flex items-center gap-3 font-bold uppercase tracking-wider text-sm">
-                <i class="fas fa-bolt text-blue-500"></i> AMD Dedicated
-            </button>
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <button onclick="showPlans('amd')" id="btn-amd" class="tab-btn active px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest">AMD Ryzen 9</button>
+            <button onclick="showPlans('intel')" id="btn-intel" class="tab-btn px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest text-gray-400">Intel Xeon Gold</button>
+            <button onclick="showPlans('dedicated')" id="btn-dedicated" class="tab-btn px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest text-gray-400">AMD Dedicated</button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="vps-card p-8 flex flex-col">
-                <div class="mb-8">
-                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Ryzen Starter</span>
-                    <h3 class="text-2xl font-bold mt-2">NVMe-1</h3>
-                    <div class="mt-4 flex items-baseline gap-1">
-                        <span class="text-4xl font-black">$4.99</span>
-                        <span class="text-gray-500 font-bold">/mo</span>
-                    </div>
-                </div>
-                <div class="space-y-4 mb-10 flex-grow text-sm text-gray-300">
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>CPU Cores</span> <span class="text-white font-bold">2 vCores</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>DDR4 RAM</span> <span class="text-white font-bold">4GB</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>NVMe SSD</span> <span class="text-white font-bold">40GB</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>Network</span> <span class="text-white font-bold">1Gbps Port</span>
-                    </div>
-                </div>
-                <button class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-600/20 uppercase tracking-widest text-xs">Deploy Node</button>
+        <div id="plans-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             </div>
 
-            <div class="vps-card p-8 flex flex-col border-2 border-blue-500/40 relative transform lg:scale-105 bg-blue-500/[0.03]">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-5 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">Best Value</div>
-                <div class="mb-8">
-                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Ryzen Power</span>
-                    <h3 class="text-2xl font-bold mt-2">NVMe-2</h3>
-                    <div class="mt-4 flex items-baseline gap-1">
-                        <span class="text-4xl font-black">$12.50</span>
-                        <span class="text-gray-500 font-bold">/mo</span>
-                    </div>
-                </div>
-                <div class="space-y-4 mb-10 flex-grow text-sm text-gray-300">
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>CPU Cores</span> <span class="text-white font-bold">4 vCores</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>DDR4 RAM</span> <span class="text-white font-bold">8GB</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>NVMe SSD</span> <span class="text-white font-bold">100GB</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>Network</span> <span class="text-white font-bold">2Gbps Port</span>
-                    </div>
-                </div>
-                <button class="w-full bg-white text-black hover:bg-blue-600 hover:text-white font-bold py-4 rounded-xl transition shadow-xl uppercase tracking-widest text-xs">Deploy Node</button>
-            </div>
-
-            <div class="vps-card p-8 flex flex-col">
-                <div class="mb-8">
-                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Ryzen Beast</span>
-                    <h3 class="text-2xl font-bold mt-2">NVMe-3</h3>
-                    <div class="mt-4 flex items-baseline gap-1">
-                        <span class="text-4xl font-black">$24.00</span>
-                        <span class="text-gray-500 font-bold">/mo</span>
-                    </div>
-                </div>
-                <div class="space-y-4 mb-10 flex-grow text-sm text-gray-300">
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>CPU Cores</span> <span class="text-white font-bold">8 vCores</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>DDR4 RAM</span> <span class="text-white font-bold">16GB</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>NVMe SSD</span> <span class="text-white font-bold">250GB</span>
-                    </div>
-                    <div class="flex items-center justify-between py-2 border-b border-white/5">
-                        <span>Network</span> <span class="text-white font-bold">10Gbps Port</span>
-                    </div>
-                </div>
-                <button class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-600/20 uppercase tracking-widest text-xs">Deploy Node</button>
-            </div>
-
-        </div>
-
-        <footer class="mt-32 text-center text-gray-600 text-xs font-bold tracking-widest uppercase">
-            Powerful VPS Servers by Demon Nodes
-        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        // VPS Data - 10 Plans for each
+        const allPlans = {
+            amd: Array.from({length: 10}, (_, i) => ({
+                name: `Ryzen Node ${i+1}`,
+                cpu: `${(i+1)*2} vCores`,
+                ram: `${(i+1)*4}GB DDR4`,
+                ssd: `${(i+1)*25}GB NVMe`,
+                price: (4.99 + (i*7)).toFixed(2)
+            })),
+            intel: Array.from({length: 10}, (_, i) => ({
+                name: `Xeon Gold ${i+1}`,
+                cpu: `${(i+1)*2} vCores`,
+                ram: `${(i+1)*8}GB ECC`,
+                ssd: `${(i+1)*40}GB SSD`,
+                price: (3.50 + (i*6)).toFixed(2)
+            })),
+            dedicated: Array.from({length: 10}, (_, i) => ({
+                name: `AMD EPYC ${i+1}`,
+                cpu: `${(i+1)*4} Dedicated`,
+                ram: `${(i+1)*16}GB DDR4`,
+                ssd: `${(i+1)*100}GB NVMe`,
+                price: (19.99 + (i*15)).toFixed(2)
+            }))
+        };
+
+        function showPlans(type) {
+            const container = document.getElementById('plans-container');
+            container.innerHTML = '';
+            
+            // Update Buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-gray-400');
+            });
+            document.getElementById(`btn-${type}`).classList.add('active');
+            document.getElementById(`btn-${type}`).classList.remove('text-gray-400');
+
+            // Inject 10 Plans
+            allPlans[type].forEach(plan => {
+                container.innerHTML += `
+                    <div class="vps-card p-6 rounded-3xl flex flex-col">
+                        <div class="mb-6">
+                            <h4 class="text-blue-500 font-bold text-[10px] uppercase tracking-tighter">${type.toUpperCase()} Performance</h4>
+                            <h3 class="text-lg font-bold text-white">${plan.name}</h3>
+                            <div class="mt-2 text-2xl font-black">$${plan.price}<span class="text-[10px] text-gray-500 font-normal">/mo</span></div>
+                        </div>
+                        <div class="space-y-3 mb-8 text-[12px] text-gray-400">
+                            <div class="flex justify-between border-b border-white/5 pb-1"><span>CPU</span> <span class="text-white">${plan.cpu}</span></div>
+                            <div class="flex justify-between border-b border-white/5 pb-1"><span>RAM</span> <span class="text-white">${plan.ram}</span></div>
+                            <div class="flex justify-between border-b border-white/5 pb-1"><span>Disk</span> <span class="text-white">${plan.ssd}</span></div>
+                        </div>
+                        <button class="w-full bg-blue-600/10 hover:bg-blue-600 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">Deploy Now</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Initialize with AMD
+        showPlans('amd');
+
+        // Particles Optimized
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 40, "density": { "enable": true, "value_area": 1200 } }, // कम डॉट्स (सिर्फ 40)
+                "number": { "value": 35, "density": { "enable": true, "value_area": 1000 } },
                 "color": { "value": "#3b82f6" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.2, "random": false }, // बहुत हल्का धुंधलापन
-                "size": { "value": 3, "random": true },
-                "line_linked": { 
-                    "enable": true, 
-                    "distance": 180, 
-                    "color": "#3b82f6", 
-                    "opacity": 0.1, // लाइन्स बहुत पतली और हल्की
-                    "width": 1 
-                },
-                "move": { "enable": true, "speed": 1.2 }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "grab" } }
-            },
-            "retina_detect": true
+                "opacity": { "value": 0.2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 1 }
+            }
         });
     </script>
 </body>
