@@ -3,40 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPS Hosting | Demon Nodes</title>
+    <title>Premium VPS Nodes | Demon Nodes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
         #particles-js {
             position: fixed;
             width: 100%;
             height: 100%;
-            background-color: #080808;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                              url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
             z-index: -1;
+            /* हल्का डार्क बैकग्राउंड */
+            background: radial-gradient(circle at top right, #0a0a2e, #050505);
         }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; color: white; }
-        .glass-card {
+
+        .category-tab {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: 0.4s ease;
-        }
-        .glass-card:hover {
-            border-color: #3b82f6; /* VPS के लिए Blue थीम */
-            transform: translateY(-10px);
-            background: rgba(59, 130, 246, 0.05);
-        }
-        .buy-btn {
-            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             transition: 0.3s;
         }
-        .buy-btn:hover {
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
-            transform: scale(1.02);
+
+        .category-tab:hover, .category-tab.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .vps-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 2rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .vps-card:hover {
+            transform: translateY(-12px);
+            border-color: #3b82f6;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
     </style>
 </head>
@@ -44,85 +62,144 @@
 
     <div id="particles-js"></div>
 
-    <div class="relative z-10 min-h-screen flex flex-col items-center p-6">
-        
-        <header class="w-full max-w-6xl flex justify-between items-center py-8">
-            <a href="index.html" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
-                <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-10">
+        <header class="flex justify-between items-center mb-16">
+            <a href="index.html" class="flex items-center gap-2 text-gray-400 hover:text-white transition group">
+                <i class="fas fa-arrow-left group-hover:-translate-x-2 transition"></i> Back to Home
             </a>
-            <div class="text-right">
-                <h1 class="text-2xl font-black uppercase tracking-tighter">VPS <span class="text-blue-500">Nodes</span></h1>
+            <div class="bg-blue-600/20 px-4 py-1 rounded-full border border-blue-500/30 text-xs font-bold text-blue-400 uppercase tracking-widest">
+                High-Performance Network
             </div>
         </header>
 
-        <div class="text-center mt-10 mb-20">
-            <h2 class="text-5xl md:text-7xl font-black mb-4 tracking-tight">KVM <span class="text-blue-500">VPS</span> HOSTING</h2>
-            <p class="text-gray-400 max-w-lg mx-auto">High-performance Virtual Private Servers with dedicated resources and root access.</p>
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tighter uppercase neon-text">CHOOSE YOUR <span class="text-blue-500">ENGINE</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">अपनी वर्कलोड की ज़रुरत के हिसाब से प्रोसेसर और पावर चुनें।</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
+        <div class="flex flex-wrap justify-center gap-4 mb-20">
+            <button class="category-tab active px-8 py-4 rounded-2xl flex items-center gap-3 font-bold uppercase tracking-wider text-sm">
+                <i class="fas fa-microchip text-blue-500"></i> AMD Ryzen™ 9
+            </button>
+            <button class="category-tab px-8 py-4 rounded-2xl flex items-center gap-3 font-bold uppercase tracking-wider text-sm">
+                <i class="fas fa-server text-blue-500"></i> Intel® Xeon®
+            </button>
+            <button class="category-tab px-8 py-4 rounded-2xl flex items-center gap-3 font-bold uppercase tracking-wider text-sm">
+                <i class="fas fa-bolt text-blue-500"></i> AMD Dedicated
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="glass-card p-10 rounded-[2.5rem] flex flex-col">
-                <div class="mb-6">
-                    <h3 class="text-xl font-bold uppercase tracking-widest text-blue-400">Starter Node</h3>
-                    <div class="text-5xl font-black mt-4">$5.00<span class="text-sm text-gray-500 font-normal">/mo</span></div>
+            <div class="vps-card p-8 flex flex-col">
+                <div class="mb-8">
+                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Ryzen Starter</span>
+                    <h3 class="text-2xl font-bold mt-2">NVMe-1</h3>
+                    <div class="mt-4 flex items-baseline gap-1">
+                        <span class="text-4xl font-black">$4.99</span>
+                        <span class="text-gray-500 font-bold">/mo</span>
+                    </div>
                 </div>
-                <ul class="space-y-4 text-gray-300 text-sm mb-12 flex-grow">
-                    <li><i class="fas fa-microchip text-blue-500 mr-3"></i> 2 vCores (Ryzen 9)</li>
-                    <li><i class="fas fa-memory text-blue-500 mr-3"></i> 4GB DDR4 RAM</li>
-                    <li><i class="fas fa-hdd text-blue-500 mr-3"></i> 40GB NVMe SSD</li>
-                    <li><i class="fas fa-network-wired text-blue-500 mr-3"></i> 1Gbps Port</li>
-                    <li><i class="fas fa-terminal text-blue-500 mr-3"></i> Full Root Access</li>
-                </ul>
-                <button class="buy-btn w-full py-4 rounded-2xl font-bold text-lg uppercase tracking-wider">Deploy Now</button>
+                <div class="space-y-4 mb-10 flex-grow text-sm text-gray-300">
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>CPU Cores</span> <span class="text-white font-bold">2 vCores</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>DDR4 RAM</span> <span class="text-white font-bold">4GB</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>NVMe SSD</span> <span class="text-white font-bold">40GB</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>Network</span> <span class="text-white font-bold">1Gbps Port</span>
+                    </div>
+                </div>
+                <button class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-600/20 uppercase tracking-widest text-xs">Deploy Node</button>
             </div>
 
-            <div class="glass-card p-10 rounded-[2.5rem] flex flex-col border-2 border-blue-600/50 relative">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 px-4 py-1 rounded-full text-[10px] font-bold">RECOMMENDED</div>
-                <div class="mb-6">
-                    <h3 class="text-xl font-bold uppercase tracking-widest text-blue-400">Demon Node</h3>
-                    <div class="text-5xl font-black mt-4">$12.00<span class="text-sm text-gray-500 font-normal">/mo</span></div>
+            <div class="vps-card p-8 flex flex-col border-2 border-blue-500/40 relative transform lg:scale-105 bg-blue-500/[0.03]">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-5 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">Best Value</div>
+                <div class="mb-8">
+                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Ryzen Power</span>
+                    <h3 class="text-2xl font-bold mt-2">NVMe-2</h3>
+                    <div class="mt-4 flex items-baseline gap-1">
+                        <span class="text-4xl font-black">$12.50</span>
+                        <span class="text-gray-500 font-bold">/mo</span>
+                    </div>
                 </div>
-                <ul class="space-y-4 text-gray-300 text-sm mb-12 flex-grow">
-                    <li><i class="fas fa-microchip text-blue-500 mr-3"></i> 4 vCores (Ryzen 9)</li>
-                    <li><i class="fas fa-memory text-blue-500 mr-3"></i> 8GB DDR4 RAM</li>
-                    <li><i class="fas fa-hdd text-blue-500 mr-3"></i> 80GB NVMe SSD</li>
-                    <li><i class="fas fa-network-wired text-blue-500 mr-3"></i> 2Gbps Port</li>
-                    <li><i class="fas fa-shield-virus text-blue-500 mr-3"></i> Advanced DDoS Protection</li>
-                </ul>
-                <button class="buy-btn w-full py-4 rounded-2xl font-bold text-lg uppercase tracking-wider">Deploy Now</button>
+                <div class="space-y-4 mb-10 flex-grow text-sm text-gray-300">
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>CPU Cores</span> <span class="text-white font-bold">4 vCores</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>DDR4 RAM</span> <span class="text-white font-bold">8GB</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>NVMe SSD</span> <span class="text-white font-bold">100GB</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>Network</span> <span class="text-white font-bold">2Gbps Port</span>
+                    </div>
+                </div>
+                <button class="w-full bg-white text-black hover:bg-blue-600 hover:text-white font-bold py-4 rounded-xl transition shadow-xl uppercase tracking-widest text-xs">Deploy Node</button>
             </div>
 
-            <div class="glass-card p-10 rounded-[2.5rem] flex flex-col">
-                <div class="mb-6">
-                    <h3 class="text-xl font-bold uppercase tracking-widest text-blue-400">God Node</h3>
-                    <div class="text-5xl font-black mt-4">$25.00<span class="text-sm text-gray-500 font-normal">/mo</span></div>
+            <div class="vps-card p-8 flex flex-col">
+                <div class="mb-8">
+                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Ryzen Beast</span>
+                    <h3 class="text-2xl font-bold mt-2">NVMe-3</h3>
+                    <div class="mt-4 flex items-baseline gap-1">
+                        <span class="text-4xl font-black">$24.00</span>
+                        <span class="text-gray-500 font-bold">/mo</span>
+                    </div>
                 </div>
-                <ul class="space-y-4 text-gray-300 text-sm mb-12 flex-grow">
-                    <li><i class="fas fa-microchip text-blue-500 mr-3"></i> 8 vCores (Ryzen 9)</li>
-                    <li><i class="fas fa-memory text-blue-500 mr-3"></i> 16GB DDR4 RAM</li>
-                    <li><i class="fas fa-hdd text-blue-500 mr-3"></i> 160GB NVMe SSD</li>
-                    <li><i class="fas fa-network-wired text-blue-500 mr-3"></i> 10Gbps Port</li>
-                    <li><i class="fas fa-headset text-blue-500 mr-3"></i> 24/7 Priority Support</li>
-                </ul>
-                <button class="buy-btn w-full py-4 rounded-2xl font-bold text-lg uppercase tracking-wider">Deploy Now</button>
+                <div class="space-y-4 mb-10 flex-grow text-sm text-gray-300">
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>CPU Cores</span> <span class="text-white font-bold">8 vCores</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>DDR4 RAM</span> <span class="text-white font-bold">16GB</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>NVMe SSD</span> <span class="text-white font-bold">250GB</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-white/5">
+                        <span>Network</span> <span class="text-white font-bold">10Gbps Port</span>
+                    </div>
+                </div>
+                <button class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-600/20 uppercase tracking-widest text-xs">Deploy Node</button>
             </div>
 
         </div>
 
+        <footer class="mt-32 text-center text-gray-600 text-xs font-bold tracking-widest uppercase">
+            Powerful VPS Servers by Demon Nodes
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 40, "density": { "enable": true, "value_area": 1200 } }, // कम डॉट्स (सिर्फ 40)
                 "color": { "value": "#3b82f6" },
-                "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1.5 }
-            }
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2, "random": false }, // बहुत हल्का धुंधलापन
+                "size": { "value": 3, "random": true },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 180, 
+                    "color": "#3b82f6", 
+                    "opacity": 0.1, // लाइन्स बहुत पतली और हल्की
+                    "width": 1 
+                },
+                "move": { "enable": true, "speed": 1.2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" } }
+            },
+            "retina_detect": true
         });
     </script>
 </body>
 </html>
-
