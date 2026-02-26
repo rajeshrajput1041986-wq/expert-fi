@@ -13,12 +13,12 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050505;
             color: white;
             overflow-x: hidden;
+            background-color: #050505; /* Fallback color */
         }
 
-        /* Ateex Style Hero Section */
+        /* Ateex Style Hero Section with image_6.png background */
         .hero {
             position: relative;
             height: 100vh;
@@ -29,8 +29,9 @@
             justify-content: center;
             text-align: center;
             padding: 20px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=1974&auto=format&fit=crop');
+            /* Overlay gradient on the background image */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                        url('image_6.png');
             background-size: cover;
             background-position: center;
         }
@@ -50,7 +51,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #a855f7;
+            color: #a855f7; /* Purple accents */
         }
 
         .title {
@@ -58,13 +59,15 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
+            letter-spacing: -2px;
         }
 
         .description {
-            color: #94a3b8;
+            color: #94a3b8; /* Light gray text */
             max-width: 600px;
             font-size: 1.1rem;
             margin-bottom: 35px;
+            line-height: 1.6;
         }
 
         .price-tag {
@@ -73,17 +76,18 @@
             margin-bottom: 30px;
         }
 
+        /* Green accent for price starting from image_5.png */
         .price-tag span { color: #10b981; }
 
-        /* Main CTA Button */
+        /* Main CTA Button styled similarly to image_5.png */
         .cta-btn {
-            background: #7c3aed;
+            background: #7c3aed; /* Purple color from image_5.png */
             color: white;
             padding: 18px 40px;
             border-radius: 18px;
             font-weight: 800;
             font-size: 1.1rem;
-            transition: 0.3s;
+            transition: 0.3s ease-out;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -96,7 +100,7 @@
             box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
         }
 
-        /* Bottom Menu Grid (As per Screenshot) */
+        /* Bottom Menu Grid (styled based on images 4 & 5) */
         .bottom-nav {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -117,7 +121,7 @@
             gap: 12px;
             font-size: 14px;
             font-weight: 600;
-            transition: 0.3s;
+            transition: 0.3s ease;
             cursor: pointer;
         }
 
@@ -126,14 +130,14 @@
             border-color: #7c3aed;
         }
 
-        /* Floating Chat Bubble */
+        /* Floating Chat Bubble from image_5.png */
         .chat-float {
             position: fixed;
             bottom: 25px;
             right: 25px;
             width: 60px;
             height: 60px;
-            background: #7c3aed;
+            background: #e933e9; /* Pink/magenta color from image_5.png */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -142,6 +146,122 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             cursor: pointer;
             z-index: 100;
+        }
+
+        /* VPS Pricing Section styled from image_3.png */
+        .pricing-section {
+            padding: 100px 20px;
+            background-color: #0d0d0d; /* Dark section background */
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Glassmorphism card style from image_3.png */
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: #3b82f6; /* Blue hover accent */
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* Recommended plan blue border and badge from image_3.png */
+        .pricing-card.recommended {
+            border: 2px solid #3b82f6;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .plan-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: 400;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            font-size: 0.95rem;
+            color: #d1d5db;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Blue icons for features from image_3.png */
+        .feature-list li i {
+            color: #3b82f6;
+        }
+
+        /* Order button similar to image_3.png */
+        .order-btn {
+            background-color: #3b82f6;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: #2563eb;
         }
 
     </style>
@@ -157,9 +277,9 @@
         </div>
         <div class="flex items-center gap-6">
             <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-                <a href="#" class="hover:text-white transition">Games</a>
-                <a href="#" class="hover:text-white transition">VPS</a>
-                <a href="#" class="hover:text-white transition">Status</a>
+                <a href="#" class="hover:text-white transition">Solutions</a>
+                <a href="#" class="hover:text-white transition">Network</a>
+                <a href="#" class="hover:text-white transition">Support</a>
             </div>
             <a href="https://billing.demonnodes.com" class="text-xs font-bold uppercase border border-purple-500/50 px-5 py-2 rounded-full hover:bg-purple-600 transition">Login</a>
         </div>
@@ -201,6 +321,59 @@
             </div>
         </div>
     </section>
+
+    <section id="plans" class="pricing-section">
+        <div class="text-center mb-16 px-6">
+            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter uppercase mb-4">KVM <span class="text-blue-500">VPS</span> HOSTING</h2>
+            <p class="text-gray-400 max-w-lg mx-auto feature-list li">High-performance Virtual Private Servers with dedicated resources and root access.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Starter Node</div>
+                <div class="plan-price feature-list li">$5.00 <span>/mo</span></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-microchip"></i> 2 vCores (Ryzen 9)</li>
+                    <li><i class="fas fa-memory"></i> 4GB DDR4 RAM</li>
+                    <li><i class="fas fa-hdd"></i> 40GB NVMe SSD</li>
+                    <li><i class="fas fa-network-wired"></i> 1Gbps Port</li>
+                    <li><i class="fas fa-terminal"></i> Full Root Access</li>
+                </ul>
+                <a href="#" class="order-btn">Deploy Now</a>
+            </div>
+
+            <div class="pricing-card recommended">
+                <div class="recommended-badge">Recommended</div>
+                <div class="plan-name pricing-card hover">Demon Node</div>
+                <div class="plan-price recommended-badge">$12.00 <span>/mo</span></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-microchip"></i> 4 vCores (Ryzen 9)</li>
+                    <li><i class="fas fa-memory"></i> 8GB DDR4 RAM</li>
+                    <li><i class="fas fa-hdd"></i> 80GB NVMe SSD</li>
+                    <li><i class="fas fa-network-wired"></i> 2Gbps Port</li>
+                    <li><i class="fas fa-shield-alt"></i> Advanced DDoS Protection</li>
+                </ul>
+                <a href="#" class="order-btn cta-btn">Deploy Now</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name recommended-badge">God Node</div>
+                <div class="plan-price recommended-badge">$25.00 <span>/mo</span></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-microchip"></i> 8 vCores (Ryzen 9)</li>
+                    <li><i class="fas fa-memory"></i> 16GB DDR4 RAM</li>
+                    <li><i class="fas fa-hdd"></i> 160GB NVMe SSD</li>
+                    <li><i class="fas fa-network-wired"></i> 10Gbps Port</li>
+                    <li><i class="fas fa-headset"></i> 24/7 Priority Support</li>
+                </ul>
+                <a href="#" class="order-btn">Deploy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center bg-black pricing-card recommended border feature-list li">
+        <p class="text-gray-600 feature-list li feature-list li">&copy; 2024 Demon Nodes Hosting Group. All rights reserved.</p>
+    </footer>
 
     <div class="chat-float">
         <i class="fas fa-comment-alt"></i>
