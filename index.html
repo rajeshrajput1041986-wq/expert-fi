@@ -3,120 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demon Nodes | Shuruat Se Pro</title>
+    <title>Demon Nodes | Ultimate Cloud Hosting</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020202; color: white; overflow-x: hidden; }
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, #0d0d2b 0%, #020202 100%); }
-        
-        /* Premium Card Style */
-        .service-card { position: relative; height: 350px; overflow: hidden; border-radius: 2rem; background: #0f0f0f; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.5s ease; }
-        .card-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .service-card:hover .card-img { opacity: 0.8; transform: scale(1.1); }
-        .card-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 100%); }
-        .service-card:hover { border-color: #a855f7; box-shadow: 0 0 40px rgba(168, 85, 247, 0.2); }
-        
-        /* Footer Glass */
-        .glass-footer { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Ateex Style Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Glass Pill Badge */
+        .pill {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #a855f7;
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #94a3b8;
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .price-tag {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .price-tag span { color: #10b981; }
+
+        /* Main CTA Button */
+        .cta-btn {
+            background: #7c3aed;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 18px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            background: #6d28d9;
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Bottom Menu Grid (As per Screenshot) */
+        .bottom-nav {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .nav-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 15px 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #7c3aed;
+        }
+
+        /* Floating Chat Bubble */
+        .chat-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #7c3aed;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            cursor: pointer;
+            z-index: 100;
+        }
+
     </style>
 </head>
 <body>
 
-    <div id="particles-js"></div>
-
-    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center bg-black/20 backdrop-blur-md">
-        <div class="flex items-center gap-2">
-            <span class="text-2xl font-black tracking-tighter italic text-white">DEMON<span class="text-purple-500">NODES</span></span>
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center bg-black/10 backdrop-blur-md border-b border-white/5">
+        <div class="flex items-center gap-3">
+            <div class="bg-purple-600 p-1.5 rounded-lg">
+                <i class="fas fa-ghost text-white text-lg"></i>
+            </div>
+            <span class="text-xl font-black uppercase tracking-tighter italic">Demon<span class="text-purple-500">Nodes</span></span>
         </div>
-        <div class="flex gap-6">
-            <a href="https://panel.demonnodes.com" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full text-xs font-bold uppercase transition">Panel Login</a>
+        <div class="flex items-center gap-6">
+            <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+                <a href="#" class="hover:text-white transition">Games</a>
+                <a href="#" class="hover:text-white transition">VPS</a>
+                <a href="#" class="hover:text-white transition">Status</a>
+            </div>
+            <a href="https://billing.demonnodes.com" class="text-xs font-bold uppercase border border-purple-500/50 px-5 py-2 rounded-full hover:bg-purple-600 transition">Login</a>
         </div>
     </nav>
 
-    <section class="pt-48 pb-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter uppercase">Power Up Your <span class="text-purple-500">Game</span></h1>
-            <p class="text-gray-400 text-lg">High-end hardware se bani gaming hosting, ab aapke budget mein.</p>
+    <section class="hero">
+        <div class="pill">
+            <i class="fas fa-gamepad"></i> Minecraft Hosting
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            <a href="minecraft-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=1974&auto=format&fit=crop" class="card-img" alt="Minecraft">
-                <div class="card-content">
-                    <h3 class="text-2xl font-bold">Minecraft</h3>
-                    <p class="text-purple-400 text-xs font-bold uppercase tracking-widest mt-2">DDoS Protected • $1.00</p>
-                </div>
-            </a>
+        <h1 class="title">
+            Minecraft Server <br> Hosting
+        </h1>
 
-            <a href="vps-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="VPS">
-                <div class="card-content">
-                    <h3 class="text-2xl font-bold">KVM VPS</h3>
-                    <p class="text-blue-400 text-xs font-bold uppercase tracking-widest mt-2">Ryzen 9 Power • $5.00</p>
-                </div>
-            </a>
+        <p class="description">
+            Experience lag-free gaming with our enterprise-grade hardware, 99.9% uptime, and instant setup within seconds.
+        </p>
 
-            <a href="palworld-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="Palworld">
-                <div class="card-content">
-                    <h3 class="text-2xl font-bold">Palworld</h3>
-                    <p class="text-yellow-400 text-xs font-bold uppercase tracking-widest mt-2">Extreme Performance • $4.50</p>
-                </div>
-            </a>
+        <div class="price-tag">
+            Starting at <span>$1/mo</span>
+        </div>
 
-            <a href="bot-plans.html" class="service-card group">
-                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070&auto=format&fit=crop" class="card-img" alt="Bots">
-                <div class="card-content">
-                    <h3 class="text-2xl font-bold">Bot Hosting</h3>
-                    <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mt-2">24/7 Online • Coming Soon</p>
-                </div>
-            </a>
+        <a href="#plans" class="cta-btn">
+            Get Started <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+
+        <div class="bottom-nav">
+            <div class="nav-item">
+                <i class="fas fa-cube text-purple-500"></i> Minecraft Hosting
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-server text-blue-500"></i> VPS Hosting
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-globe text-green-500"></i> Web Hosting
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-robot text-orange-500"></i> Bot Hosting
+            </div>
         </div>
     </section>
 
-    <footer class="glass-footer pt-20 pb-10 px-8">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div class="col-span-1 md:col-span-2">
-                <span class="text-2xl font-black italic">DEMON<span class="text-purple-500">NODES</span></span>
-                <p class="text-gray-500 mt-6 text-sm leading-relaxed max-w-sm">Hum pradaan karte hain next-generation gaming servers jo kabhi lag nahi hote. Aapka game, hamari zimmedari.</p>
-            </div>
-            <div>
-                <h4 class="font-bold uppercase text-xs tracking-widest mb-6">Important Links</h4>
-                <ul class="text-gray-400 text-sm space-y-4">
-                    <li><a href="https://panel.demonnodes.com" class="hover:text-purple-500 transition">Game Panel Login</a></li>
-                    <li><a href="https://billing.demonnodes.com" class="hover:text-purple-500 transition">Billing Area</a></li>
-                    <li><a href="#" class="hover:text-purple-500 transition">Node Status</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold uppercase text-xs tracking-widest mb-6">Social</h4>
-                <div class="flex gap-4">
-                    <a href="https://discord.gg/yourlink" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-purple-600 transition"><i class="fab fa-discord"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-pink-600 transition"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center text-gray-600 text-[10px] font-bold uppercase tracking-widest border-t border-white/5 pt-10">
-            © 2026 Demon Nodes Hosting Group. All Rights Reserved.
-        </div>
-    </footer>
+    <div class="chat-float">
+        <i class="fas fa-comment-alt"></i>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#a855f7" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#a855f7", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 1 }
-            }
-        });
-    </script>
 </body>
 </html>
